@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rotación de Vector</title>
+</head>
+<body>
+  <label for="angle">Ingresa el ángulo de rotación en grados:</label>
+  <input type="number" id="angle" step="any">
+  <br>
+  <label for="x">Ingresa la coordenada x del vector:</label>
+  <input type="number" id="x" step="any">
+  <br>
+  <label for="y">Ingresa la coordenada y del vector:</label>
+  <input type="number" id="y" step="any">
+  <br>
+  <button onclick="rotateVector()">Rotar Vector</button>
+  <script>
+    function rotateVector() {
+      var angleDegrees = parseFloat(document.getElementById("angle").value);
+      var angleRadians = (angleDegrees * Math.PI) / 180;
+      var x = parseFloat(document.getElementById("x").value);
+      var y = parseFloat(document.getElementById("y").value);
+
+      var rotatedX = Math.cos(angleRadians) * x - Math.sin(angleRadians) * y;
+      var rotatedY = Math.sin(angleRadians) * x + Math.cos(angleRadians) * y;
+
+      alert(`El vector rotado es: (${rotatedX.toFixed(2)}, ${rotatedY.toFixed(2)})`);
+    }
+  </script>
+</body>
+</html>
